@@ -19,21 +19,21 @@ export default function Home() {
         Changed py-6 to py-4 to bring the whole bar up.
         Added md:items-center so the logo and menu align perfectly on the same horizontal line.
       */}
-            <header className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 border-b boarder-white ">
+            <header className="flex flex-col items-center justify-start px-10  md:flex-row md:items-center md:px-16">
 
                 {/* Logo Container */}
                 <div className="mb-4 md:mb-0">
                     <Image
                         src="/logo.png"
                         alt="Eweb Community Logo"
-                        width={200} // Slightly reduced width to prevent it from pushing upward
+                        width={250} // Slightly reduced width to prevent it from pushing upward
                         height={60}
                         className="object-contain"
                         priority
                     />
                 </div>
                 {/* Navigation Links */}
-                <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium transition-colors md:gap-8 md:text-base">
+                <nav className="flex flex-wrap justify-center gap-6 px-20 text-sm font-medium transition-colors md:gap-8 md:text-base">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
