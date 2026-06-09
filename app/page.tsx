@@ -19,7 +19,11 @@ export default function Home() {
         Changed py-6 to py-4 to bring the whole bar up.
         Added md:items-center so the logo and menu align perfectly on the same horizontal line.
       */}
-            <header className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 border-b boarder-white ">
+            <header className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 pb-0"
+                style={{
+                    borderBottom: "1px solid #ffffff", marginTop: "-1.5rem"
+
+                }}>
 
                 {/* Logo Container */}
                 <div className="mb-4 md:mb-0">
@@ -33,7 +37,7 @@ export default function Home() {
                     />
                 </div>
                 {/* Navigation Links */}
-                <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium transition-colors md:gap-8 md:text-base">
+                <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium transition-colors md:gap-8 md:text-base px-20">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
