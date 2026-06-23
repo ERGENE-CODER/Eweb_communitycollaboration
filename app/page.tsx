@@ -23,10 +23,7 @@ export default function Home() {
     return (
         <main>
             <section className="relative min-h-screen w-full bg-[#F4F7F5]">
-                {/* 
-        Changed py-6 to py-4 to bring the whole bar up.
-        Added md:items-center so the logo and menu align perfectly on the same horizontal line.
-      */}
+                
                 <header className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 pb-0"
                     style={{
                         borderBottom: "1px solid #ffffff", marginTop: "-1.5rem", backgroundColor: "#FFFFFF"
