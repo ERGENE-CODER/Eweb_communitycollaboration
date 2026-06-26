@@ -401,8 +401,12 @@ export default function Home() {
 
                         {/* Column 2: Location */}
                         <div>
+
                             <h3 className="text-[24px] font-semibold mb-4">Location</h3>
-                            <p className="leading-relaxed">kigali, Gikondo campus</p>
+                            <ul style={{ listStyleType: "square" }}>
+                                <li><p className="leading-relaxed">kigali, Gikondo campus</p> </li>
+
+                            </ul>
                         </div>
 
                         {/* Column 3: Course */}
