@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import type { CSSProperties } from "react"
+import { SpanStatus } from "next/dist/trace"
 export default function Home() {
     const navLinks = [
         { name: "Home", href: "/" },
@@ -15,11 +17,42 @@ export default function Home() {
     ]
     const parenttableStyle = {
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit,minmax(250,1fr))",
+        gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
         backgroundColor: "#ffffff",
         width: "100%",
         minHeight: "800px"
     }
+    const parentheaderStyle = {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+        minHeight: "200px",
+        marginTop: "40px",
+        marginLeft: "150px",
+        marginRight: "150px",
+        gap: "15px"
+
+    }
+    const childheaderStyle: CSSProperties = {
+        display: "flex",
+        flexDirection: "column",
+        height: "150px",
+        backgroundColor: "#f0eeee",
+        border: "1px solid #030303"
+    }
+    const searchparentStyle: CSSProperties = {
+        display: "grid",
+        gridTemplateColumns: "repeat(4,1fr)",
+        width: "80%",
+        minHeight: "5vh",
+        marginLeft: "150px"
+
+    }
+    const searchchildStye: CSSProperties = {
+        display: "flex",
+        flexDirection: "column",
+
+    }
+
     return (
         <main>
             <section className="relative min-h-screen w-full bg-[#F4F7F5]">
@@ -56,7 +89,34 @@ export default function Home() {
                         ))}
                     </nav>
                 </header>
+                {/* body bank page */}
+                <section>
+                    <div style={{ borderBottom: "2px solid #191b1a", marginLeft: "150px", marginRight: "150px" }}>
+                        <p className="text-black text-[40px] font-bold">Bank</p>
+                        <p className="text-[20px] text-gray-400">Fee Collection Ledge</p>
+                    </div>
+                    {/*  hchildhearer secton */}
+                    <span style={parentheaderStyle}>
+                        <div style={childheaderStyle}>
+
+                        </div>
+                        <div style={childheaderStyle}>
+
+                        </div>
+                        <div style={childheaderStyle}>
+                        </div>
+                    </span>
+                    {/*  search card , add, pedding,*/}
+                    <section style={searchparentStyle}>
+                        <div style={{ ...searchchildStye, backgroundColor: "#fff", }}>
+
+                        </div>
+
+                    </section>
+                </section>
             </section>
-        </main>
+
+
+        </main >
     )
 }

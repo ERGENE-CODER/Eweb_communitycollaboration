@@ -1,4 +1,7 @@
 "use client"
+import { BsTelephoneFill } from "react-icons/bs";
+import { BsEnvelopeFill } from "react-icons/bs";
+import { BsInstagram, BsFacebook, BsYoutube, BsWhatsapp } from "react-icons/bs";
 import Link from "next/link"
 import Image from "next/image"
 import { CSSProperties } from "react"
@@ -135,7 +138,7 @@ export default function Home() {
                     <div style={childleaderStyle}>
                         <img src="photo.png" style={{ borderRadius: " 9px 9px 0 0", filter: "grayscale(100%)" }} />
                         <p style={{ marginLeft: "12px ", color: "black", fontWeight: "bold", fontSize: "15px" }}>Names:</p>
-                        <span style={{ display: "inline-block", paddingLeft: "8px", paddingRight: "8px", color: "black", fontWeight: "bold", fontSize: "15px", borderRadius: "5px" }} className="bg-green-500 w-fit ml-[10px]">Chief Executive Officer (CEO)</span>
+                        <span style={{ display: "inline-block", paddingLeft: "8px", paddingRight: "8px", color: "black", fontWeight: "bold", fontSize: "15px", borderRadius: "5px" }}>Chief Executive Officer (CEO)</span>
                         <ul style={{ fontSize: "13px", color: "black" }}>
                             <li style={{ marginLeft: "12px" }}>Manages day-to-day operations and ensures that the organization runs smoothly.</li>
                         </ul>
@@ -381,8 +384,8 @@ export default function Home() {
                     <p className="flex justify-center items-center text-white text-[30px] " style={{ paddingTop: "10px" }}>our stakeholders</p>
                 </section>
                 {/* bottom  or footer section*/}
-                <footer style={{ backgroundColor: "#62bb93", width: "100%", height: "500px", marginTop: "70px" }}>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-6 text-[20px]" style={{ color: "#fffbfb" }}>
+                <footer style={{ backgroundColor: "#62bb93", width: "100%", height: "450px", marginTop: "70px" }}>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-5 py-5 text-[20px]" style={{ color: "#fffbfb" }}>
 
                         {/* Column 1: Quick Links */}
                         <div>
@@ -419,6 +422,14 @@ export default function Home() {
                         <div>
                             <h3 className="text-[24px] font-semibold mb-4">Contact</h3>
                             {/* Contact details will go here safely under its heading */}
+                            <p className="flex flex-row   gap-5 "> <BsTelephoneFill size="22" color="#f7f7f7" /> +2250 793839740 </p>
+                            <p className="flex flex-row   gap-5"><BsEnvelopeFill size="32" color="#f7f7f7" />ewebcommunity@gmail.com</p>
+                            <p className="flex py-5"><BsInstagram size="22" color="#f7f7f7" /></p>
+                            <p className="flex py-5"><BsFacebook size="22" color="#f7f7f7" /> </p>
+                            <p className="flex py-5"><BsYoutube size="22" color="#f7f7f7" /> </p>
+                            <p className="flex py-5"><BsWhatsapp size="22" color="#f7f7f7" /></p>
+
+
                         </div>
 
                     </div>
