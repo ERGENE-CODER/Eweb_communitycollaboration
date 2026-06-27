@@ -39,19 +39,23 @@ export default function Home() {
         backgroundColor: "#f0eeee",
         border: "1px solid #030303"
     }
+    // 1. The Parent Container (Handles the overall row layout and wrapping)
     const searchparentStyle: CSSProperties = {
-        display: "grid",
-        gridTemplateColumns: "repeat(4,1fr)",
-        width: "80%",
-        minHeight: "5vh",
-        marginLeft: "150px"
+        display: "flex",
+        flexWrap: "wrap",        // Allows cards to wrap to the next line when screen space runs out
+        gap: "20px",             // Spacing between the cards
+        minHeight: "6vh",
+        marginLeft: "150px",     // Your custom left margin
+        padding: "20px 0",       // Added a little padding just for clean presentation
+    };
 
-    }
-    const searchchildStye: CSSProperties = {
+    const searchchildStyle: CSSProperties = {
         display: "flex",
         flexDirection: "column",
-
-    }
+        boxSizing: "border-box",  // Keeps widths predictable even with padding/borders
+        padding: "15px",
+        border: "1px solid #ddd",
+    };
 
     return (
         <main>
@@ -108,9 +112,27 @@ export default function Home() {
                     </span>
                     {/*  search card , add, pedding,*/}
                     <section style={searchparentStyle}>
-                        <div style={{ ...searchchildStye, backgroundColor: "#fff", }}>
-
+                        <div style={{ ...searchchildStyle, width: "45%", backgroundColor: "#f4f4f4" }}>
+                            <input
+                                type="text"
+                                placeholder="search"
+                                style={{ color: "#000000", padding: "5px", outline: "none", border: "none" }}
+                            />
                         </div>
+                        <div style={{ ...searchchildStyle, width: "10%", backgroundColor: "#070707", borderRadius: "20px" }}>
+                            <h1 style={{ paddingLeft: "30px" }}>All</h1>
+                        </div>
+                        <div style={{ ...searchchildStyle, width: "10%", backgroundColor: "#0c0909", borderRadius: "20px" }}>
+                            <h1 style={{ paddingLeft: "30px" }}>All</h1>
+                        </div>
+                        <div style={{ ...searchchildStyle, width: "10%", borderRadius: "20px" }}>
+                            <h1 style={{ paddingLeft: "30px" }}>All</h1>
+                        </div>
+                        <div style={{ ...searchchildStyle, width: "10%", borderRadius: "20px" }}>
+                            <h1 style={{ paddingLeft: "30px" }}>All</h1>
+                        </div>
+
+
 
                     </section>
                 </section>
