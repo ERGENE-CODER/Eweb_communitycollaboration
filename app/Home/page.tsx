@@ -1,5 +1,5 @@
 "use client"
-import { CSSProperties } from "react"
+
 import Link from "next/link"
 import Image from "next/image"
 export default function Home() {
@@ -23,7 +23,10 @@ export default function Home() {
     return (
         <main>
             <section className="relative min-h-screen w-full bg-[#F4F7F5]">
-                
+                {/* 
+        Changed py-6 to py-4 to bring the whole bar up.
+        Added md:items-center so the logo and menu align perfectly on the same horizontal line.
+      */}
                 <header className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 pb-0"
                     style={{
                         borderBottom: "1px solid #ffffff", marginTop: "-1.5rem", backgroundColor: "#FFFFFF"
@@ -53,21 +56,7 @@ export default function Home() {
                         ))}
                     </nav>
                 </header>
-                <div className="flex  flex-col py-30 px-20">
-                    <p className="text-black text-[40px] ">Welcome to ergene web community</p>
-                    <p className="text-black flex flex-col px-10">-Eweb community our sweats make our world shine</p>
-                </div>
-
-            </section>
-            {/* grid section that contain commitee leaders */}
-            <section className="bg-[#ffffff] min-h-screen w-full ">
-                < p className="flex flex-col items-center justify-center text-black py-10 text-[20px]  ">About our community</p>
-                <p className="text-black flex px-70 ">Meet the talented  minds and dedicated individual driving innovation and leading our community forward</p>
-                <div style={parenttableStyle}>
-
-                </div>
             </section>
         </main>
-
     )
 }
