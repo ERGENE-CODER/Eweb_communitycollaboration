@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { siFacebook, siInstagram } from "simple-icons/icons";
 
@@ -15,7 +17,7 @@ function SocialLink({
     <a
       href="#"
       aria-label={label}
-      className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-emerald-700 hover:border-emerald-700 transition"
+      className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-400 hover:border-blue-400 transition"
     >
       <svg viewBox={viewBox} className="w-4 h-4" role="img" aria-hidden="true">
         <path d={svgPath} fill="currentColor" />
@@ -25,55 +27,67 @@ function SocialLink({
 }
 
 export default function ContactPage() {
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About us", href: "/about" },
+    { name: "Achievement", href: "/achievement" },
+    { name: "Announcement", href: "/announcement" },
+    { name: "Courses", href: "/course" },
+    { name: "Bank", href: "/bank" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Login", href: "/login" },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
-      {/* Navigation Bar */}
-      <nav className="bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-emerald-700 rounded-lg flex items-center justify-center text-white font-bold text-lg">
-            E
-          </div>
-          <span className="text-xl font-bold text-emerald-800">Eweb Community</span>
+    <div className="min-h-screen bg-[#F4F7F5] text-gray-800 font-sans">
+      {/* Navigation Bar matched with template design */}
+      <header 
+        className="flex flex-col items-center justify-start px-6 py-4 md:flex-row md:items-center md:px-16 pb-0"
+        style={{
+          borderBottom: "1px solid #ffffff", 
+          marginTop: "-1.5rem", 
+          backgroundColor: "#FFFFFF"
+        }}
+      >
+        {/* Logo Container */}
+        <div className="mb-4 md:mb-0">
+          <Image
+            src="/logo5.png"
+            alt="Eweb Community Logo"
+            width={200}
+            height={60}
+            className="object-contain"
+            priority
+          />
         </div>
 
-        <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
-          <a href="#" className="hover:text-emerald-700 transition">
-            Home
-          </a>
-          <a href="#" className="hover:text-emerald-700 transition">
-            About
-          </a>
-          <a href="#" className="hover:text-emerald-700 transition">
-            Announcements
-          </a>
-          <a href="#" className="hover:text-emerald-700 transition">
-            Achievements
-          </a>
-          <a href="#" className="hover:text-emerald-700 transition">
-            Courses
-          </a>
-          <a href="#" className="hover:text-emerald-700 transition">
-            Bank
-          </a>
-          <a
-            href="#"
-            className="text-emerald-700 border-b-2 border-emerald-700 pb-1"
-          >
-            Contact Us
-          </a>
-        </div>
-
-        <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
-          Login
-        </button>
-      </nav>
+        {/* Navigation Links matching global structure */}
+        <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium transition-colors md:gap-8 md:text-base px-20">
+          {navLinks.map((link) => {
+            const isContactPage = link.href === "/contact";
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`transition-colors duration-200 ${
+                  isContactPage 
+                    ? "text-blue-500 font-semibold border-b-2 border-blue-400 pb-1" 
+                    : "text-slate-700 hover:text-blue-400"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+      </header>
 
       {/* Main Content Area */}
       <main className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
         {/* Left Side: Contact Information */}
         <div className="md:col-span-5 space-y-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-500">
               • GET IN TOUCH
             </span>
             <h1 className="text-4xl font-extrabold text-gray-900 mt-2 mb-4">
@@ -87,7 +101,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             {/* Address */}
             <div className="flex items-start space-x-4">
-              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-emerald-700">
+              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-blue-500">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -95,14 +109,14 @@ export default function ContactPage() {
                   Address
                 </h4>
                 <p className="text-sm text-gray-700 font-medium mt-0.5">
-                  123 Community Avenue, Digital District, TX 10001
+                  Kigali, Rwanda
                 </p>
               </div>
             </div>
 
             {/* Email */}
             <div className="flex items-start space-x-4">
-              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-emerald-700">
+              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-blue-500">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -113,14 +127,14 @@ export default function ContactPage() {
                   href="mailto:hello@ewebcommunity.org"
                   className="text-sm text-gray-700 font-medium mt-0.5 block hover:underline"
                 >
-                  hello@ewebcommunity.org
+                ewebcommunity@gmail.com
                 </a>
               </div>
             </div>
 
             {/* Phone */}
             <div className="flex items-start space-x-4">
-              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-emerald-700">
+              <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-blue-500">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
@@ -128,7 +142,7 @@ export default function ContactPage() {
                   Phone
                 </h4>
                 <p className="text-sm text-gray-700 font-medium mt-0.5">
-                  +1 (800) 332-7744
+                  +250 793 839 740
                 </p>
               </div>
             </div>
@@ -140,8 +154,6 @@ export default function ContactPage() {
               Follow the community
             </h4>
             <div className="flex space-x-3">
-              {/*<SocialLink svgPath={siTwitter.svg} label="Twitter" />
-              <SocialLink svgPath={siLinkedin.svg} label="LinkedIn" />*/}
               <SocialLink svgPath={siFacebook.svg} label="Facebook" />
               <SocialLink svgPath={siInstagram.svg} label="Instagram" />
             </div>
@@ -160,8 +172,8 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="John"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-emerald-600 focus:bg-white transition"
+                  placeholder="Bright"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white transition"
                 />
               </div>
               <div>
@@ -170,8 +182,8 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Doe"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-emerald-600 focus:bg-white transition"
+                  placeholder="SHEMA"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white transition"
                 />
               </div>
             </div>
@@ -182,8 +194,8 @@ export default function ContactPage() {
               </label>
               <input
                 type="email"
-                placeholder="john@example.com"
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-emerald-600 focus:bg-white transition"
+                placeholder="shemabright@example.com"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white transition"
               />
             </div>
 
@@ -192,7 +204,7 @@ export default function ContactPage() {
                 Subject
               </label>
               <div className="relative">
-                <select className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-emerald-600 focus:bg-white appearance-none text-gray-500 transition">
+                <select className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white appearance-none text-gray-500 transition">
                   <option>Select a topic...</option>
                   <option>General Inquiry</option>
                   <option>Technical Support</option>
@@ -217,13 +229,13 @@ export default function ContactPage() {
               <textarea
                 rows={4}
                 placeholder="Tell us how we can help..."
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-emerald-600 focus:bg-white resize-none transition"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white resize-none transition"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-[#2A6F4D] hover:bg-[#21563B] text-white font-medium py-3 rounded-xl transition shadow-sm"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-xl transition shadow-sm"
             >
               Send Message
             </button>
